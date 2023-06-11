@@ -1,17 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Simple_Report" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="734fe629-d5df-4bac-ad7a-39df34992f00">
-  <style name="Sans_Normal" isDefault="true" fontName="SolaimanLipi" fontSize="14"
-    isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
-  <detail>
-    <band height="20" splitType="Stretch">
-      <staticText>
-        <reportElement x="180" y="0" width="200" height="20" uuid="33bc60c5-4a96-466c-a1dd-c613c10c23d8"/>
-        <textElement>
-          <font fontName="SolaimanLipi"/>
-        </textElement>
-        <text><![CDATA[আমি বাংলা ভালোবাসি]]></text>
-      </staticText>
-    </band>
-  </detail>
+	<style name="Sans_Normal" isDefault="true" fontName="SolaimanLipi" fontSize="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<parameter name="dataSource" class="net.sf.jasperreports.engine.JRDataSource" isForPrompting="false"/>
+	<field name="start_date" class="java.time.LocalDate">
+		<fieldDescription><![CDATA[startDate]]></fieldDescription>
+	</field>
+	<field name="end_date" class="java.time.LocalDate">
+		<fieldDescription><![CDATA[endDate]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="205" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="0" width="200" height="20" uuid="33bc60c5-4a96-466c-a1dd-c613c10c23d8"/>
+				<textElement>
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[আমি বাংলা ভালোবাসি]]></text>
+			</staticText>
+			<textField pattern="MMMM d, yyyy">
+				<reportElement x="80" y="70" width="100" height="30" uuid="7f906cff-2735-4e9d-8862-7b0600a5f96a"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{start_date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMM d, yyyy">
+				<reportElement x="380" y="70" width="100" height="30" uuid="780e2448-d73c-419c-b28a-b8c452e131ed"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{end_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="70" width="98" height="22" uuid="42335641-fae2-4558-890f-ab93427df9ec"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[End Date: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="70" width="98" height="22" uuid="113c52a7-d265-4655-9c77-09d85ee0c694"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Start Date: ]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="184" width="150" height="20" uuid="4f5016ce-3b5d-4f4b-b1f9-065e94d37e63"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="184" width="260" height="20" uuid="aac7380f-8cea-4585-a8e7-855e4016d0e7"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
 </jasperReport>
