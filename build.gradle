@@ -52,7 +52,11 @@ dependencies {
 	// https://mvnrepository.com/artifact/xerces/xercesImpl
 	// protected An illegal reflective access operation. for jasperreports
 	implementation 'xerces:xercesImpl:2.12.1'
-	
+
+    // Number to word conversion
+	implementation files('lib/numberToWords.jar')
+	implementation files('lib/NumberToBanglaTaka.jar')
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

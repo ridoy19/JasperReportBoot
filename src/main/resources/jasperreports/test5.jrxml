@@ -3,6 +3,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Simple_Report" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="734fe629-d5df-4bac-ad7a-39df34992f00">
 	<style name="Sans_Normal" isDefault="true" fontName="SolaimanLipi" fontSize="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
 	<parameter name="dataSource" class="net.sf.jasperreports.engine.JRDataSource" isForPrompting="false"/>
+	<parameter name="amount" class="java.lang.Double" isForPrompting="false"/>
 	<field name="start_date" class="java.time.LocalDate">
 		<fieldDescription><![CDATA[startDate]]></fieldDescription>
 	</field>
@@ -53,12 +54,40 @@
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="180" y="130" width="370" height="20" uuid="4f5016ce-3b5d-4f4b-b1f9-065e94d37e63"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new NumberToWords().converter($P{amount})]]></textFieldExpression>
+			</textField>
 			<textField>
 				<reportElement x="290" y="184" width="260" height="20" uuid="aac7380f-8cea-4585-a8e7-855e4016d0e7"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="130" width="200" height="20" uuid="11fb2d60-81de-4e12-8cd4-9fbe240ee2b7"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Converted Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="150" width="180" height="20" uuid="b9ba5bfb-26b5-4763-b242-597fe1e8997d"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[To Bengali]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="180" y="150" width="370" height="20" uuid="69e8b065-c59e-46c3-aeba-760801233edb"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[NumberToBanglaTaka.convert($P{amount})]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

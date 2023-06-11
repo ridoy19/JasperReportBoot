@@ -97,6 +97,7 @@ public class pdfController {
     params.put("dataSource", beanCollectionDataSource);
     params.put("startDate", Date.valueOf(deadline.getStartDate()));
     params.put("endDate", Date.valueOf(deadline.getEndDate()));
+    params.put("amount", 200.40);
 
 // Log information
 //    LOG.info("Template is [{}]. Params are [{}]. Date is [{}]", jrxml, params, deadline.nowdate);
